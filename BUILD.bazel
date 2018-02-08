@@ -12,3 +12,5 @@ go_binary(
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
 )
+go_rules_dependencies()
+go_register_toolchains(go_version="host")
