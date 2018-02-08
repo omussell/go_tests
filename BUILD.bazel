@@ -1,6 +1,15 @@
-load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
-gazelle(
-    name = "gazelle",
-    prefix = "github.com/omussell/go_tests",
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/omussell/go_tests",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_brianvoe_gofakeit//:go_default_library"],
+)
+
+go_binary(
+    name = "go_tests",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
 )
