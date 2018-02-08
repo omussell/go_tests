@@ -5,7 +5,6 @@ go_library(
     srcs = ["main.go"],
     importpath = "github.com/omussell/go_tests",
     visibility = ["//visibility:private"],
-    deps = ["@com_github_brianvoe_gofakeit//:go_default_library"],
 )
 
 go_binary(
