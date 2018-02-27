@@ -13,3 +13,11 @@ go_rules_dependencies()
 go_register_toolchains(go_version="host")
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 gazelle_dependencies()
+
+load("@io_bazel_rules_go//go:def.bzl", "go_repository")
+
+go_repository(
+    name = "com_github_brianvoe_gofakeit",
+    importpath = "github.com/brianvoe/gofakeit",
+    commit = "b0b2ecfdf447299dd6bcdef91001692fc349ce4c",
+)
