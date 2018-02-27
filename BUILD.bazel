@@ -4,3 +4,8 @@ gazelle(
     name = "gazelle",
     prefix = "github.com/omussell/go_tests",
 )
+
+gazelle(
+    name = "gazelle-gofakeit",
+    prefix = "github.com/brianvoe/gofakeit",
+)
