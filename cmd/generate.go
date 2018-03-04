@@ -6,6 +6,10 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/brianvoe/gofakeit"
 )
+var (
+	echoTimes int
+	echoSeed  int
+)
 
 // generateCmd represents the generate command
 var generateCmd = &cobra.Command{
@@ -23,10 +27,11 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
+	nameCmd.Flags().IntVarP(&echoTimes, "times", "t", 1, "times to echo the input")
+	nameCmd.Flags().IntVarP(&echoSeed, "seed", "s", 0, "seed for entropy")
 	rootCmd.AddCommand(generateCmd)
 	generateCmd.AddCommand(versionCmd)
 	generateCmd.AddCommand(nameCmd)
-//	rootCmd.AddCommand(versionCmd)
 
 	// Here you will define your flags and configuration settings.
 
@@ -54,7 +59,9 @@ var nameCmd = &cobra.Command{
   Long:  `Prints a name, default random, use --seed to
 make it less random`,
   Run: func(cmd *cobra.Command, args []string) {
-    gofakeit.Seed(0)
-    fmt.Println(gofakeit.Name())
+    gofakeit.Seed(int64(echoSeed))
+    for i := 0; i < echoTimes; i++ {
+      fmt.Println(gofakeit.Name())
+    }
   },
 }
