@@ -21,3 +21,9 @@ go_repository(
     importpath = "github.com/brianvoe/gofakeit",
     commit = "b0b2ecfdf447299dd6bcdef91001692fc349ce4c",
 )
+
+go_repository(
+    name = "com_github_spf13_cobra",
+    importpath = "github.com/spf13/cobra",
+    commit = "c6c44e6fdcc30161c7f4480754da7230d01c06e3",
+)
