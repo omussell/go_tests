@@ -35,7 +35,7 @@ go_repository(
 )
 
 go_repository(
-    name = "com_github_mitchellh_go-homedir",
+    name = "com_github_mitchellh_go_homedir",
     importpath = "github.com/mitchellh/go-homedir",
     commit = "b8bc1bf767474819792c23f32d8286a45736f1c6",
 )
@@ -67,7 +67,7 @@ go_repository(
     commit = "2c9e9502788518c97fe44e8955cd069417ee89df",
 )
 go_repository(
-    name = "com_github_pelletier_go-toml",
+    name = "com_github_pelletier_go_toml",
     importpath = "github.com/pelletier/go-toml",
     commit = "05bcc0fb0d3e60da4b8dd5bd7e0ea563eb4ca943",
 )
