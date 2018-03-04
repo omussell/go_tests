@@ -51,3 +51,43 @@ go_repository(
     importpath = "github.com/go-yaml/yaml/tree/v2.1.1",
     commit = "7f97868eec74b32b0982dd158a51a446d1da7eb5",
 )
+go_repository(
+    name = "com_github_fsnotify_fsnotify",
+    importpath = "github.com/fsnotify/fsnotify",
+    commit = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9",
+)
+go_repository(
+    name = "com_github_hashicorp_hcl",
+    importpath = "github.com/hashicorp/hcl",
+    commit = "23c074d0eceb2b8a5bfdbb271ab780cde70f05a8",
+)
+go_repository(
+    name = "com_github_magiconair_properties",
+    importpath = "github.com/magiconair/properties",
+    commit = "2c9e9502788518c97fe44e8955cd069417ee89df",
+)
+go_repository(
+    name = "com_github_pelletier_go-toml",
+    importpath = "github.com/pelletier/go-toml",
+    commit = "05bcc0fb0d3e60da4b8dd5bd7e0ea563eb4ca943",
+)
+go_repository(
+    name = "com_github_spf13_afero",
+    importpath = "github.com/spf13/afero",
+    commit = "bbf41cb36dffe15dff5bf7e18c447801e7ffe163",
+)
+go_repository(
+    name = "com_github_spf13_cast",
+    importpath = "github.com/spf13/cast",
+    commit = "8965335b8c7107321228e3e3702cab9832751bac",
+)
+go_repository(
+    name = "com_github_spf13_jwalterweatherman",
+    importpath = "github.com/spf13/jwalterweatherman",
+    commit = "7c0cea34c8ece3fbeb2b27ab9b59511d360fb394",
+)
+go_repository(
+    name = "com_github_spf13_pflag",
+    importpath = "github.com/spf13/pflag",
+    commit = "ee5fd03fd6acfd43e44aea0b4135958546ed8e73",
+)
