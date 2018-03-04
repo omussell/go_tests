@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-//	"github.com/brianvoe/gofakeit"
+	"github.com/brianvoe/gofakeit"
 )
 
 // generateCmd represents the generate command
@@ -23,8 +23,10 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	//rootCmd.AddCommand(generateCmd)
-	//rootCmd.AddCommand(versionCmd)
+	rootCmd.AddCommand(generateCmd)
+	generateCmd.AddCommand(versionCmd)
+	generateCmd.AddCommand(nameCmd)
+//	rootCmd.AddCommand(versionCmd)
 
 	// Here you will define your flags and configuration settings.
 
@@ -46,8 +48,13 @@ var versionCmd = &cobra.Command{
   },
 }
 
-//func main() {
-//	gofakeit.Seed(0)
-//	fmt.Println(gofakeit.Name())
-//	//	fmt.Println("test")
-//}
+var nameCmd = &cobra.Command{
+  Use:   "name",
+  Short: "Print a name",
+  Long:  `Prints a name, default random, use --seed to
+make it less random`,
+  Run: func(cmd *cobra.Command, args []string) {
+    gofakeit.Seed(0)
+    fmt.Println(gofakeit.Name())
+  },
+}
