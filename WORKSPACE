@@ -29,6 +29,12 @@ go_repository(
 )
 
 go_repository(
+    name = "com_github_spf13_viper",
+    importpath = "github.com/spf13/viper",
+    commit = "aafc9e6bc7b7bb53ddaa75a5ef49a17d6e654be5",
+)
+
+go_repository(
     name = "com_github_mitchellh_go-homedir",
     importpath = "github.com/mitchellh/go-homedir",
     commit = "b8bc1bf767474819792c23f32d8286a45736f1c6",
