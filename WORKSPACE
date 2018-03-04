@@ -27,3 +27,9 @@ go_repository(
     importpath = "github.com/spf13/cobra",
     commit = "c6c44e6fdcc30161c7f4480754da7230d01c06e3",
 )
+
+go_repository(
+    name = "com_github_mitchellh_go-homedir",
+    importpath = "github.com/mitchellh/go-homedir",
+    commit = "b8bc1bf767474819792c23f32d8286a45736f1c6",
+)
