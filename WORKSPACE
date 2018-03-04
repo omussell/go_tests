@@ -39,3 +39,9 @@ go_repository(
     importpath = "github.com/mitchellh/go-homedir",
     commit = "b8bc1bf767474819792c23f32d8286a45736f1c6",
 )
+
+go_repository(
+    name = "com_github_mitchellh_mapstructure",
+    importpath = "github.com/mitchellh/mapstructure",
+    commit = "00c29f56e2386353d58c599509e8dc3801b0d716",
+)
