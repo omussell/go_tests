@@ -1,10 +1,9 @@
 package main
 
-import "github.com/brianvoe/gofakeit"
-import "fmt"
+import (
+	"github.com/omussell/go_tests/cmd"
+)
 
 func main() {
-	gofakeit.Seed(0)
-	fmt.Println(gofakeit.Name())
-	//	fmt.Println("test")
+	cmd.Execute()
 }
