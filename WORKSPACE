@@ -48,7 +48,7 @@ go_repository(
 
 go_repository(
     name = "in_gopkg_yaml_v2",
-    importpath = "github.com/go-yaml/yaml/tree/v2.1.1",
+    importpath = "github.com/go-yaml/yaml",
     commit = "7f97868eec74b32b0982dd158a51a446d1da7eb5",
 )
 go_repository(
