@@ -45,3 +45,9 @@ go_repository(
     importpath = "github.com/mitchellh/mapstructure",
     commit = "00c29f56e2386353d58c599509e8dc3801b0d716",
 )
+
+go_repository(
+    name = "in_gopkg_yaml_v2",
+    importpath = "github.com/go-yaml/yaml/tree/v2.1.1",
+    commit = "7f97868eec74b32b0982dd158a51a446d1da7eb5",
+)
