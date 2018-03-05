@@ -9,6 +9,12 @@ import (
 var (
 	echoTimes int
 	echoSeed  int
+//	pwLower   bool
+//	pwUpper   bool
+//	pwNumeric bool
+//        pwSpecial bool
+//        pwSpace   bool
+        pwLength  int
 )
 
 // generateCmd represents the generate command
@@ -27,11 +33,17 @@ to quickly create a Cobra application.`,
 }
 
 func init() {
-	nameCmd.Flags().IntVarP(&echoTimes, "times", "t", 1, "times to echo the input")
-	nameCmd.Flags().IntVarP(&echoSeed, "seed", "s", 0, "seed for entropy")
+	//nameCmd.Flags().IntVarP(&echoTimes, "times", "t", 1, "times to echo the input")
+	//nameCmd.Flags().IntVarP(&echoSeed, "seed", "s", 0, "seed for entropy")
+	rootCmd.PersistentFlags().IntVarP(&echoTimes, "times", "t", 1, "times to echo the input")
+	rootCmd.PersistentFlags().IntVarP(&echoSeed, "seed", "s", 0, "seed for entropy")
+	passwordCmd.Flags().IntVarP(&pwLength, "length", "l", 32, "length of password")
+
 	rootCmd.AddCommand(generateCmd)
 	generateCmd.AddCommand(versionCmd)
 	generateCmd.AddCommand(nameCmd)
+	generateCmd.AddCommand(emailCmd)
+	generateCmd.AddCommand(passwordCmd)
 
 	// Here you will define your flags and configuration settings.
 
@@ -62,6 +74,33 @@ make it less random`,
     gofakeit.Seed(int64(echoSeed))
     for i := 0; i < echoTimes; i++ {
       fmt.Println(gofakeit.Name())
+    }
+  },
+}
+
+var emailCmd = &cobra.Command{
+  Use:   "email",
+  Short: "Print an email",
+  Long:  `Prints an email, default random, use --seed to
+make it less random`,
+  Run: func(cmd *cobra.Command, args []string) {
+    gofakeit.Seed(int64(echoSeed))
+    for i := 0; i < echoTimes; i++ {
+      fmt.Println(gofakeit.Email())
+    }
+  },
+}
+
+var passwordCmd = &cobra.Command{
+  Use:   "password",
+  Short: "Print password",
+  Long:  `Prints a password, default random, use --seed to
+make it less random`,
+  Run: func(cmd *cobra.Command, args []string) {
+    gofakeit.Seed(int64(echoSeed))
+    for i := 0; i < echoTimes; i++ {
+      //fmt.Println(gofakeit.Password(pwLower, pwUpper, pwNumeric, pwSpecial, pwSpace, pwLength))
+      fmt.Println(gofakeit.Password(true, true, true, true, false, pwLength))
     }
   },
 }
