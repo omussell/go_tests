@@ -1,0 +1,11 @@
+hello world ✓
+gofakeit ✓
+cobra ✓
+generate names and passwords ✓
+viper
+configuration files with viper
+store data in sqlite
+
+JWT app for puppet autosigning
+
+CI in Go using GRPC+Protobuf
