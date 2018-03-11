@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"github.com/brianvoe/gofakeit"
 )
 var (
@@ -21,12 +22,7 @@ var (
 var generateCmd = &cobra.Command{
 	Use:   "generate",
 	Short: "Generate random data",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Long: `A longer description`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("generate called")
 	},
@@ -36,8 +32,11 @@ func init() {
 	//nameCmd.Flags().IntVarP(&echoTimes, "times", "t", 1, "times to echo the input")
 	//nameCmd.Flags().IntVarP(&echoSeed, "seed", "s", 0, "seed for entropy")
 	rootCmd.PersistentFlags().IntVarP(&echoTimes, "times", "t", 1, "times to echo the input")
+        viper.BindPFlag("times", rootCmd.PersistentFlags().Lookup("times"))
 	rootCmd.PersistentFlags().IntVarP(&echoSeed, "seed", "s", 0, "seed for entropy")
+        viper.BindPFlag("seed", rootCmd.PersistentFlags().Lookup("seed"))
 	passwordCmd.Flags().IntVarP(&pwLength, "length", "l", 32, "length of password")
+        viper.BindPFlag("length", passwordCmd.PersistentFlags().Lookup("length"))
 
 	rootCmd.AddCommand(generateCmd)
 	generateCmd.AddCommand(versionCmd)
@@ -59,9 +58,9 @@ func init() {
 var versionCmd = &cobra.Command{
   Use:   "version",
   Short: "Print the version number",
-  Long:  `All software has versions. This is Hugo's`,
+  Long:  `All software has versions`,
   Run: func(cmd *cobra.Command, args []string) {
-    fmt.Println("Hugo Static Site Generator v0.9 -- HEAD")
+    fmt.Println("Fake data Generator v0.1")
   },
 }
 
@@ -71,8 +70,10 @@ var nameCmd = &cobra.Command{
   Long:  `Prints a name, default random, use --seed to
 make it less random`,
   Run: func(cmd *cobra.Command, args []string) {
-    gofakeit.Seed(int64(echoSeed))
-    for i := 0; i < echoTimes; i++ {
+    //gofakeit.Seed(int64(echoSeed))
+    gofakeit.Seed(int64(viper.GetInt("seed")))
+    //for i := 0; i < echoTimes; i++ {
+    for i := 0; i < viper.GetInt("times"); i++ {
       fmt.Println(gofakeit.Name())
     }
   },
@@ -84,8 +85,9 @@ var emailCmd = &cobra.Command{
   Long:  `Prints an email, default random, use --seed to
 make it less random`,
   Run: func(cmd *cobra.Command, args []string) {
-    gofakeit.Seed(int64(echoSeed))
-    for i := 0; i < echoTimes; i++ {
+    gofakeit.Seed(int64(viper.GetInt("seed")))
+    //for i := 0; i < echoTimes; i++ {
+    for i := 0; i < viper.GetInt("times"); i++ {
       fmt.Println(gofakeit.Email())
     }
   },
@@ -97,8 +99,9 @@ var passwordCmd = &cobra.Command{
   Long:  `Prints a password, default random, use --seed to
 make it less random`,
   Run: func(cmd *cobra.Command, args []string) {
-    gofakeit.Seed(int64(echoSeed))
-    for i := 0; i < echoTimes; i++ {
+    gofakeit.Seed(int64(viper.GetInt("seed")))
+    //for i := 0; i < echoTimes; i++ {
+    for i := 0; i < viper.GetInt("times"); i++ {
       //fmt.Println(gofakeit.Password(pwLower, pwUpper, pwNumeric, pwSpecial, pwSpace, pwLength))
       fmt.Println(gofakeit.Password(true, true, true, true, false, pwLength))
     }
