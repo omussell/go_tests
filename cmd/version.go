@@ -16,7 +16,7 @@ var versionCmd = &cobra.Command{
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("App Version: %s\n", version)
+		fmt.Printf("%s\n", version)
 	},
 }
 
