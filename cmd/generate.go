@@ -55,15 +55,6 @@ func init() {
 	// generateCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-var versionCmd = &cobra.Command{
-  Use:   "version",
-  Short: "Print the version number",
-  Long:  `All software has versions`,
-  Run: func(cmd *cobra.Command, args []string) {
-    fmt.Println("Fake data Generator v0.1")
-  },
-}
-
 var nameCmd = &cobra.Command{
   Use:   "name",
   Short: "Print a name",
